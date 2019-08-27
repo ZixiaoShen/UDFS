@@ -32,5 +32,5 @@ test_X = test(:, Vectors);
 test_y = test(:, Target);
 
 %% Feature Selection Process
-% MIFS
+% UDFS
 [r_MIFS, w_MIFS] = UDFS_Zeal(train_X, train_y)

@@ -15,10 +15,9 @@ function [Rank, Score] = UDFS_Zeal(X, nClass)
     if sum(sum(isnan(L))) > 0
         Rank = [1:size(X, 2)];
     else
-        A = X'*L*X;
+        A = X' * L * X;
         W = fs_unsup_udfs(A, nClass, param.gamma);
         [~, Rank] = sort(sum(W.*W, 2), 'descend');
     end
-    Rank = 0;
-    Score = 0;
+    Score = sum(W .* W, 2);
 end
