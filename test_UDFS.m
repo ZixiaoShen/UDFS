@@ -2,9 +2,11 @@ clear;
 clc;
 
 %% load the data
-load('/Users/shenzixiao/Dropbox/DATA/UCI/WBC/wbc.mat');
-data = table2array(breastcancerwisconsin);
+data = xlsread('D:\\Programming\\Data\\WBC\\wbc.csv');
 
+% load('/Users/shenzixiao/Dropbox/DATA/UCI/WBC/wbc.mat');
+% data = table2array(breastcancerwisconsin);
+% 
 %% data preprocessing
 NaN_Column = find(any(isnan(data)));
 NaN_Row = find(isnan(data(:, NaN_Column)));
