@@ -2,11 +2,12 @@ clear;
 clc;
 
 %% load the data
-data = xlsread('D:\\Programming\\Data\\WBC\\wbc.csv');
+wbc = xlsread('D:\\Programming\\Data\\WBC\\wbc.csv');
 
 % load('/Users/shenzixiao/Dropbox/DATA/UCI/WBC/wbc.mat');
-% data = table2array(breastcancerwisconsin);
-% 
+% data = table2array(wbc);
+data = wbc;
+
 %% data preprocessing
 NaN_Column = find(any(isnan(data)));
 NaN_Row = find(isnan(data(:, NaN_Column)));
@@ -35,4 +36,4 @@ test_y = test(:, Target);
 
 %% Feature Selection Process
 % UDFS
-[r_MIFS, w_MIFS] = UDFS_Zeal(train_X, train_y)
+[r_MIFS, w_MIFS] = UDFS(train_X, 2)
